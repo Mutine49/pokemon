@@ -12,6 +12,8 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
-    
-    <?php include_once('header.php') ?>
+        <?php include_once('header.php') ?>
+    </div>
+
+    <?php include_once('footer.php') ?>
 </body>
