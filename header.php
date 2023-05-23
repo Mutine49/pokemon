@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="search_type.php">Types</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="search_trainer.php">Dresseurs</a>
+        </li>
       </ul>
     </div>
   </div>
