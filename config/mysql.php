@@ -17,8 +17,8 @@ try {
     die('Erreur : '.$exception->getMessage());
 }
 
-$sqlQuery = 'SELECT * FROM pokemon';
-$pokemonStatement = $mysqlClient->prepare($sqlQuery);
+/// fonction pokemon pour index.php
+$pokemonStatement = $mysqlClient->prepare('SELECT * FROM pokemon');
 $pokemonStatement->execute();
 $pokemon = $pokemonStatement->fetchAll();
 
