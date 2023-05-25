@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mon premier site web</title>
+  <title>type du pokemon</title>
 </head>
 <body>
   <header>
