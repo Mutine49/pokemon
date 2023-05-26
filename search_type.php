@@ -20,10 +20,10 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
-        <?php include_once('header.php') ?>
-        <?php foreach ($type as $t) :?>
-            <a href =type_perso.php?id=[<?php echo $t['id']; ?>]><?php echo $t['nom']; ?></a>
-        <?php endforeach ?>
+        <?php include_once('header.php');
+            foreach ($type as $t) :
+            echo("<a href =type_perso.php?id=" .  $t['id']   .  ">"  .  $t['nom']  .  "</a>");
+            endforeach ?>
     </div>
 
     <?php include_once('footer.php') ?>

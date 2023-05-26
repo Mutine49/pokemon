@@ -1,5 +1,3 @@
-<?php include_once('config/mysql.php') ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,10 +13,6 @@
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
         <?php include_once('header.php') ?>
-        <?php foreach ($pokemon as $p) :?>
-            <p><?php echo $p['nom']; ?></p>
-        <?php endforeach ?>
     </div>
-    
     <?php include_once('footer.php')?>
 </body>
