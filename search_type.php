@@ -1,3 +1,11 @@
+<?php 
+    include_once('config/mysql.php');
+    /// fonction type pour index.php
+    $typeStatement = $mysqlClient->prepare('SELECT * FROM type');
+    $typeStatement->execute();
+    $type = $typeStatement->fetchAll(); 
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +21,9 @@
 <body class="d-flex flex-column min-vh-100">
     <div class="container">
         <?php include_once('header.php') ?>
-        
+        <?php foreach ($type as $t) :?>
+            <a href =type_perso.php?id=[<?php echo $t['id']; ?>]><?php echo $t['nom']; ?></a>
+        <?php endforeach ?>
     </div>
 
     <?php include_once('footer.php') ?>
