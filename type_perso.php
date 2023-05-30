@@ -2,7 +2,7 @@
     include_once('config/mysql.php');
     $type_page = $_GET["id"];
     $typeStatement = $mysqlClient->prepare("
-        SELECT pokemon.nom as nom FROM pokemon JOIN est_de_type ON pokemon.id = est_de_type.id_pkmn JOIN type ON type.id = est_de_type.id_type WHERE type.id = :type
+        SELECT pokemon.nom as nom, pokemon.id as poke_id FROM pokemon JOIN est_de_type ON pokemon.id = est_de_type.id_pkmn JOIN type ON type.id = est_de_type.id_type WHERE type.id = :type
     ");
     $typeStatement->execute([
         'type' => $type_page,
@@ -25,7 +25,7 @@
     <div class="container">
         <?php include_once('header.php') ;
             foreach ($type as $t) :
-                echo '<p>'.$t['nom'].'</p>';
+                echo ("<a href =search_pokemon.php?id=".$t['poke_id'].">".$t['nom']."</a></br>");
             endforeach ?>
     </div>
     <?php include_once('footer.php')?>

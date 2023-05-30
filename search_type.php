@@ -22,7 +22,7 @@
     <div class="container">
         <?php include_once('header.php');
             foreach ($type as $t) :
-            echo("<a href =type_perso.php?id=" .  $t['id']   .  ">"  .  $t['nom']  .  "</a>");
+                echo("<a href =type_perso.php?id=".$t['id'].">".$t['nom']."</a></br>");
             endforeach ?>
     </div>
 
