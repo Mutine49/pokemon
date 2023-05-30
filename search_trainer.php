@@ -1,63 +1,61 @@
-<?php include_once('config/mysql.php') ?>
+<?php
+include_once('config/mysql.php');
+$dresseur = $mysqlClient->prepare("SELECT nom, nb_combats FROM dresseur -- AND SELECT id_dresseur FROM pokemons_existants JOIN id_dresseur ON dresseur.nom AND SELECT id_Pokemon FROM pokemon_existants JOIN id_Pokemon ON pokemon.nom", 
+
+);
+
+$dresseur->execute();
+$resultD = $dresseur->fetchAll();
+?>
 
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>recherche dresseur</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>recherche dresseur</title>
 </head>
-<link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
-        rel="stylesheet"
-    >
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
-    table{
+    table {
       border-collapse: collapse;
       width: 400px;
-}
-    th, td{
+    }
+    th, td {
       border: 1px solid black;
       padding: 10px;
       vertical-align: top;
-}
-    </style>
-
-
+    }
+</style>
 <body class="d-flex flex-column min-vh-100">
-	<div class="container">
+  <div class="container">
         <?php include_once('header.php') ?>   
     </div>
-
-<h1>Liste de dresseur pokemon</h1>
-        
-<div class="card">
-    
-    <div class="card-body">
-        <h5 class="card-title">Rappel de vos informations</h5>
-        <p class="card-text"><b>liste de dresseur</b> : </p>
-        <table>
-          <thead>
-            <tr>
-              <th>nom</th>
-              <th>Nombre de combat</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td> <a href ='#'> dresseur 1 <?php echo $_GET['dresseur']; ?></td>
-              <td>nombre de combat du dresseur 1</td>
-            </tr>
-          </tbody>
-        </table>
-        <?php echo $_GET['dresseur']; ?>
+    <h1>Liste de dresseur Pokemon</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Rappel de vos informations</h5>
+            <p class="card-text"><b>Liste de dresseurs</b>:</p>
+            <table>
+              <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Nombre de combats</th>
+                  <th>pokemon</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($resultD as $rowD): ?>
+                <tr>
+                  <td><?php echo $rowD['nom']; ?></td>
+                  <td><?php echo $rowD['nb_combats']; ?></td>
+                  <td><?php echo $rowD['nb_combats']; ?></td>
+                </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+        </div>
     </div>
-</div>
-
-
-   
-
-
-<?php include_once('footer.php') ?>
+    <?php include_once('footer.php') ?>
 </body>
 </html>
