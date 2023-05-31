@@ -14,6 +14,9 @@
       <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="new_pokemon.php">Rajouter un pokemon</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="pokemon_perso.php?id=3">Pokemon ID</a>
+      </li>
       </ul>
   </div>
 </nav>
