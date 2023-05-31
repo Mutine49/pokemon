@@ -1,6 +1,8 @@
 <?php
 include_once('config/mysql.php');
-$dresseur = $mysqlClient->prepare("SELECT nom, nb_combats FROM dresseur -- AND SELECT id_dresseur FROM pokemons_existants JOIN id_dresseur ON dresseur.nom AND SELECT id_Pokemon FROM pokemon_existants JOIN id_Pokemon ON pokemon.nom", 
+$dresseur = $mysqlClient->prepare("
+SELECT nom, nb_combats 
+FROM dresseur", 
 
 );
 
@@ -46,10 +48,11 @@ $resultD = $dresseur->fetchAll();
               </thead>
               <tbody>
                 <?php foreach ($resultD as $rowD): ?>
+
                 <tr>
                   <td><?php echo $rowD['nom']; ?></td>
                   <td><?php echo $rowD['nb_combats']; ?></td>
-                  <td><?php echo $rowD['nb_combats']; ?></td>
+                  <td></td>
                 </tr>
                 <?php endforeach; ?>
               </tbody>
