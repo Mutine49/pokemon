@@ -1,21 +1,20 @@
 <?php 
     include_once('config/mysql.php');
     $pokeStatement = $mysqlClient->prepare("
-        SELECT dresseur.nom as dr_nom FROM dresseur
+        SELECT nom as dr_nom, id as dr_id FROM dresseur
     ");
-    $pokeStatement->execute();
     $poke_dr = $pokeStatement;
+    $poke_dr->execute();
     $pokeStatement = $mysqlClient->prepare("
-        SELECT pokemon.nom as poke_nom FROM pokemon
+        SELECT nom as poke_nom, id as poke_id FROM pokemon
     ");
-    $pokeStatement->execute();
     $poke_poke= $pokeStatement;
+    $poke_poke->execute();
     $pokeStatement = $mysqlClient->prepare("
-        SELECT sexe.sexe as sexe_nom FROM sexe
+        SELECT sexe as sexe_nom, id as sexe_id FROM sexe
     ");
-    $pokeStatement->execute();
     $poke_sexe = $pokeStatement;
-
+    $poke_sexe->execute();
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,28 +32,28 @@
     <div class="container">
         <?php include_once('header.php') ?>
         <h1>Rajouter un Pokémon</h1>
-        <form action="submit_contact.php" method="POST">
+        <form action="accept_pokemon.php" method="POST">
             <div class="mb-3">
                 <label>Pokemons :</label>
-                <select>
+                <select id="poke" name="poke">
                      <?php foreach ($poke_poke as $p) :
-                        echo ("<option value=".$p['poke_nom'].">".$p['poke_nom']."</option>");
+                        echo ('<option value="'.$p['poke_id'].'">'.$p['poke_nom'].'</option>');
                      endforeach ?>
                 </select>
                 </br>
                 </br>
                 <label>Sexes :</label>
-                <select>
+                <select id="sexe" name="sexe">
                     <?php foreach ($poke_sexe as $s) :
-                        echo ("<option value=".$s['sexe_nom'].">".$s['sexe_nom']."</option>");
+                        echo ('<option value="'.$s['sexe_id'].'">'.$s['sexe_nom'].'</option>');
                      endforeach ?>
                 </select>
                 </br>
                 </br>
                 <label>Dresseurs :</label>
-                <select>
+                <select id="dr" name="dr">
                     <?php foreach ($poke_dr as $dr) :
-                        echo ("<option value=".$dr['dr_nom'].">".$dr['dr_nom']."</option>");
+                        echo ('<option value="'.$dr['dr_id'].'">'.$dr['dr_nom'].'</option>');
                      endforeach ?>
                 </select>
             </div>
