@@ -12,7 +12,10 @@
         <a class="nav-link active" aria-current="page" href="search_trainer.php">Dresseurs</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="new_pokemon.php">Rajouter un pokemon</a>
+        <a class="nav-link active" aria-current="page" href="new_pokemon.php">Rajouter un pokemon</a> 
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="connexion.php">se connecter</a>
       </li>
       </ul>
   </div>
